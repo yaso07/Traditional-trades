@@ -15,9 +15,11 @@ var corsOptions = {
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 const productRouter= require("./routes/productRoutes");
-const customerRouter=require("./routes/CustomerRoutes")
+const customerRouter=require("./routes/CustomerRoutes");
+const sellerRouter=require('./routes/SellerRoutes')
 app.use("/api/products",productRouter);
 app.use("/api/customers",customerRouter);
+app.use("/api/seller",sellerRouter)
 
 app.listen(process.env.port, () => {
   console.log(`listening on http://localhost:${process.env.port}`);

@@ -15,6 +15,9 @@ const SellerSchema = mongoose.Schema({
   city: {
     type: String,
   },
+  image:{
+    type:String
+  }
 });
 
 const seller=mongoose.model('seller',SellerSchema)
