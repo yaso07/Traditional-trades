@@ -5,7 +5,21 @@ exports.getProducts = async (req, res) => {
   try {
     const data = await product.find(req.query);
     
-    return res.json(data);
+    const additional= {data:data,meta:{
+        pagination: {
+            "page": 1,
+            "pageSize": 10,
+            "pageCount": 3,
+            "total": 22
+        },
+        categories: [
+            "tamilnadu",
+            "andhra pradesh",
+            "kerala",
+        ],
+       }
+    }
+    return res.json(additional);
   } catch (error) { 
     res.send({
       errorMessage: error.message,
