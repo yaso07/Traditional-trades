@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+
 const seller = require("../model/Seller");
 
 exports.addSeller=async(req,res)=>{
@@ -13,9 +13,9 @@ exports.addSeller=async(req,res)=>{
           return res.send(error)
      }
 }
-exports.getSeller=async(req,res)=>{
+exports.getSellerById=async(req,res)=>{
       try{
-         const data= await product.findById({_id:req.query.id})
+         const data= await seller.findById({_id:req.params.id})
          res.json(data)
       }
       catch(error)
@@ -23,4 +23,15 @@ exports.getSeller=async(req,res)=>{
            res.send(error)
       }
 }
+exports.getSeller=async(req, res) => {
+  try {
+    
+    const data = await seller.find()
+    
+    return res.json(data);
+    
+  } catch (error) {
+    return res.json({ error: "data not found" });
+  }
+};
 

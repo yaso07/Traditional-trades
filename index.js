@@ -17,12 +17,13 @@ var corsOptions = {
 const productRouter= require("./routes/productRoutes");
 const customerRouter=require("./routes/CustomerRoutes");
 const sellerRouter=require('./routes/SellerRoutes')
-app.use("/api/products",productRouter);
+const defaultRouter=require('./routes/DefaultRouter')
+app.use("/api/product",productRouter);
+app.use('/api/products',defaultRouter)
 app.use("/api/customers",customerRouter);
 app.use("/api/seller",sellerRouter)
 
 app.listen(process.env.port, () => {
   console.log(`listening on http://localhost:${process.env.port}`);
 });
- 
  

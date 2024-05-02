@@ -6,6 +6,9 @@ const SellerSchema = mongoose.Schema({
   email: {
     type: String,
   },
+  password:{
+     type:String
+  },
   mobile: {
     type: String,
   },

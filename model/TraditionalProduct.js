@@ -1,6 +1,9 @@
 const mongoose=require('mongoose')
 
 const TraditonalProduct = mongoose.Schema({
+    sellerId:{
+         type:String
+    },
   product: {
     type: String,
   },

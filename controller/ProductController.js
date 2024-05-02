@@ -30,9 +30,8 @@ exports.getProducts = async (req, res) => {
 exports.getProductsById=async(req,res)=>{
   try{
      
-      const data=await product.find({id:req.params.id})
-     
-      return res.json(data)
+      const data=await product.find({_id:req.params.id})
+      return res.json({data:data[0]})
   }
   catch(error)
   {
@@ -54,4 +53,24 @@ exports.addProduct=async(req,res)=>{
    }
 
 }
+exports.updateProduct=async(req,res)=>{
+     try
+     {
+    
+        await product.findByIdAndUpdate(req.params.id, req.body);
+        return res.send({data:"success"})
+     }
+     catch(error){
+         return res.send({error:"error in update"})
+     }
+}
+exports.deleteProduct=async(req,res)=>{
+    try {
+      await product.findByIdAndDelete(req.params.id);
+      return res.send({ data: "success" });
+    } catch (error) {
+      return res.send({ error: "can't find data" });
+    }
+}
+
 

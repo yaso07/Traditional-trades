@@ -50,10 +50,10 @@ const productSchema=mongoose.Schema({
           }
         }
     
-         }
+    }
   
  
 })
 
-
-module.exports=productSchema
+const productModel = mongoose.model("user_products",productSchema);
+module.exports=productModel

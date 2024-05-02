@@ -8,6 +8,9 @@ const customerSchema=mongoose.Schema({
         type:String
 
     },
+    password:{
+        type:String
+    },
     mobile:{
         type:String
     },
