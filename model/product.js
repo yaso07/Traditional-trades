@@ -1,11 +1,10 @@
 const mongoose=require('mongoose');
 const productSchema=mongoose.Schema({
-
-    _id:{
-        type:String
-    },
     id: {
-      type:Number
+      type:String
+    },
+    sellerId:{
+        type:String
     },
     attributes: {
         title: {
@@ -42,6 +41,9 @@ const productSchema=mongoose.Schema({
         },
         shipping: {
           type: Boolean
+        },
+        status:{
+           type:String
         },
         colors: {
           type: Array,

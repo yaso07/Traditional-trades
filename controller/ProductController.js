@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 //const product = mongoose.model("products", require("../model/product"));
-const product=require('../model/TraditionalProduct')
+const product=require('../model/TraditionalProduct');
 exports.getProducts = async (req, res) => {
   try {
     const data = await product.find(req.query);
@@ -26,7 +26,14 @@ exports.getProducts = async (req, res) => {
     });
   }
 };
-
+exports.getProductsBySellerId=async(req,res)=>{
+        try {
+          const data = await product.find({sellerId:req.params.id });
+          return res.json({data:data});
+        } catch (error) {
+          res.send({ errorMessage: "not found" });
+        }
+}
 exports.getProductsById=async(req,res)=>{
   try{
      
@@ -44,8 +51,10 @@ exports.getProductsById=async(req,res)=>{
 exports.addProduct=async(req,res)=>{
  
    try{
-         await product.create(req.body) 
-         return res.json({data:"success"})
+         const data=await product.create(req.body) 
+          
+         console.log(data);
+         return res.json(data)
    }
    catch(error)
    {

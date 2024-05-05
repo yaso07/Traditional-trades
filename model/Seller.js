@@ -15,6 +15,9 @@ const SellerSchema = mongoose.Schema({
   state: {
     type: String,
   },
+  address:{
+    type:String
+  },
   city: {
     type: String,
   },

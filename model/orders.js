@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const productSchema = mongoose.Schema({
   
-    customerId:{
+  customer:{
       type:String
   },
   sellerId:{
@@ -24,3 +24,6 @@ const productSchema = mongoose.Schema({
 
 
 });
+
+const order = mongoose.model("orders", productSchema);
+module.exports = order;
